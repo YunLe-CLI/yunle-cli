@@ -15,12 +15,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+"
+    "url": "git+https://github.com/hexiao-o/yunle-cli.git"
   },
   "bugs": {
-    "url": ""
+    "url": "https://github.com/hexiao-o/yunle-cli/issues"
   },
-  "homepage": "",
+  "homepage": "https://github.com/hexiao-o/yunle-cli#readme",
   "dependencies": {
     "commander": "^2.9.0",
     "download-git-repo": "^0.2.1",
