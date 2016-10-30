@@ -45,6 +45,7 @@ if (exists(to)) {
     name: 'ok'
   }], function (answers) {
     if (answers.ok) {
+      rm(to);
       main();
     }
   });
