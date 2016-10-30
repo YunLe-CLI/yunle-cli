@@ -1,0 +1,102 @@
+#!/usr/bin/env node
+var download = require('download-git-repo');
+var program = require('commander');
+var mkdirp = require('mkdirp');
+var path = require('path');
+var fs = require('fs');
+var exists = require('fs').existsSync;
+var inquirer = require('inquirer');
+var os = require('os');
+var ora = require('ora');
+var rm = require('rimraf').sync;
+
+program
+  .usage('<template-name> [project-name]')
+  .option('-c, --clone', 'use git clone')
+
+/**
+ * Help.
+ */
+
+function help () {
+  program.parse(process.argv)
+  if (program.args.length < 1) return program.help()
+}
+help();
+
+/**
+ * Settings.
+ */
+
+var template = program.args[0]
+var hasSlash = template.indexOf('/') > -1
+var rawName = program.args[1]
+var inPlace = !rawName || rawName === '.'
+var name = inPlace ? path.relative('../', process.cwd()) : rawName
+var to = path.resolve(rawName || '.')
+var clone = program.clone || false
+
+if (exists(to)) {
+  inquirer.prompt([{
+    type: 'confirm',
+    message: inPlace
+      ? '在当前目录中生成项目？'
+      : '目标目录存在。继续吗？',
+    name: 'ok'
+  }], function (answers) {
+    if (answers.ok) {
+      main();
+    }
+  });
+} else {
+  main();
+}
+
+function main() {
+  // Path
+  createApplication(name, to);
+}
+
+/**
+ * Create application at the given directory `path`.
+ *
+ * @param {String} path
+ */
+
+function createApplication(app_name, path) {
+  mkdir(path, function() {
+    downloadAndGenerate(template, path)
+  });
+}
+
+/**
+ * Mkdir -p.
+ *
+ * @param {String} path
+ * @param {Function} fn
+ */
+
+function mkdir(path, fn) {
+  mkdirp(path, 0755, function(err){
+    if (err) throw err;
+    console.log('   \033[36mcreate\033[0m : ' + path);
+    fn && fn();
+  });
+}
+
+/**
+ * Download a generate from a template repo.
+ *
+ * @param {String} template
+ */
+
+function downloadAndGenerate (template, path) {
+  var spinner = ora('downloading template');
+  spinner.start()
+  download('hexiao-o/yunle-template-' + template, path, { clone: clone }, function (err) {
+    spinner.stop()
+    if (err) console.error('未能下载模板' + template + ': ' + err.message.trim());
+    console.log()
+    console.log('Generated "%s".', name);
+  })
+}

@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+
+require('commander')
+  .version(require('../package').version)
+  .usage('<command> [options]')
+  .command('init', '从一个模板生成一个新项目')
+  .parse(process.argv)
