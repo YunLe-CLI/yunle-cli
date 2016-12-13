@@ -1,7 +1,34 @@
 #!/usr/bin/env node
+var program = require('commander');
+var inquirer = require('inquirer');
 
-require('commander')
+program
   .version(require('../package').version)
   .usage('<command> [options]')
+  .option('-L, --ls', 'output template list')
   .command('init', '从一个模板生成一个新项目')
   .parse(process.argv)
+
+if (program.ls) {
+  console.log();
+  console.log('  template:');
+  var templates = [
+    {
+      name: 'gulp',
+      info: '专为原生html网站开发脚手架',
+    },
+    {
+      name: 'react',
+      info: '专为基于react网站开发脚手架',
+    },
+    {
+      name: 'production',
+      info: '专为前端生产环境布署node-server',
+    },
+  ];
+  for (var i = 0; i < templates.length; i++) {
+    console.log();
+    console.log('    ' + templates[i].name + '     ---  ' + templates[i].info);
+  }
+  console.log();
+}

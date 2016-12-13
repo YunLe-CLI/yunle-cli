@@ -43,18 +43,18 @@ if (exists(to)) {
       ? '在当前目录中生成项目？'
       : '目标目录存在。继续吗？',
     name: 'ok'
-  }], function (answers) {
+  }])
+  .then(function (answers) {
     if (answers.ok) {
       rm(to);
       main();
     }
-  });
+  })
 } else {
   main();
 }
 
 function main() {
-  // Path
   createApplication(name, to);
 }
 
@@ -99,5 +99,6 @@ function downloadAndGenerate (template, path) {
     if (err) console.error('未能下载模板' + template + ': ' + err.message.trim());
     console.log()
     console.log('Generated "%s".', name);
-  })
+    console.log()
+  });
 }
