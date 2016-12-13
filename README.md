@@ -1,4 +1,4 @@
-# A simple CLI for scaffolding yunle projects
+# A simple CLI for scaffolding yunle projects [![Build Status](https://travis-ci.org/hexiao-o/yunle-cli.svg?branch=master)](https://travis-ci.org/hexiao-o/yunle-cli)
 
 ## Installation
 
