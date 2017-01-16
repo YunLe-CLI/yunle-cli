@@ -18,11 +18,15 @@ if (program.ls) {
       info: '专为原生html网站开发脚手架',
     },
     {
+      name: 'webpack',
+      info: '专为私有库开发脚手架',
+    },
+    {
       name: 'react',
       info: '专为基于react网站开发脚手架',
     },
     {
-      name: 'production',
+      name: 'node',
       info: '专为前端生产环境布署node-server',
     },
   ];
