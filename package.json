@@ -1,12 +1,30 @@
 {
   "name": "yunle-cli",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "A simple CLI for scaffolding yunle projects",
   "main": "bin/yunle",
   "scripts": {
     "test": "mocha"
   },
   "keywords": [],
+  "yunleTemplates": [
+    {
+      "name": "gulp",
+      "info": "专为原生html网站开发脚手架"
+    },
+    {
+      "name": "webpack",
+      "info": "专为私有库开发脚手架"
+    },
+    {
+      "name": "react",
+      "info": "专为基于react网站开发脚手架"
+    },
+    {
+      "name": "node",
+      "info": "专为前端生产环境布署node-server"
+    }
+  ],
   "author": "hexiao-o",
   "license": "ISC",
   "bin": {
@@ -42,6 +60,6 @@
     "mocha": "^2.4.5"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=6.0.0"
   }
 }

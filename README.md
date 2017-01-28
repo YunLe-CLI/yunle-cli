@@ -2,7 +2,7 @@
 
 ## Installation
 
-Prerequisites: Node.js (>=4.x, 5.x preferred) and Git.
+Prerequisites: Node.js (>=5.x, 6.x preferred) and Git.
 
 ```
 $ npm install -g yunle-cli
@@ -11,11 +11,17 @@ $ npm install -g yunle-cli
 ## Usage
 
 ```
-$ yunle init <template-name> <project-name>
+$ yunle init <project-name>
+
 ```
 
 ### Example:
 
 ```
-$ yunle init gulp my-project
+$ yunle init my-project
+
+$ > gulp
+    webpack
+    react
+    node
 ```

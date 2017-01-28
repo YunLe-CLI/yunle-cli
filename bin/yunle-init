@@ -27,9 +27,6 @@ help();
 /**
  * Settings.
  */
-
-var template = program.args[0]
-var hasSlash = template.indexOf('/') > -1
 var rawName = program.args[1]
 var inPlace = !rawName || rawName === '.'
 var name = inPlace ? path.relative('../', process.cwd()) : rawName
@@ -55,7 +52,23 @@ if (exists(to)) {
 }
 
 function main() {
-  createApplication(name, to);
+  var yunleTemplates = require('../package').yunleTemplates;
+  var templates = [];
+  for (var i = 0; i < yunleTemplates.length; i++) {
+    templates[i] = yunleTemplates[i].name;
+  }
+  inquirer.prompt([{
+    type: 'list',
+    message: '请选择使用的模板',
+    choices: templates,
+    name: 'template'
+  }])
+  .then(function (answers) {
+    console.log(answers.template);
+    if (answers.template) {
+      createApplication(answers.template, name, to);
+    }
+  })
 }
 
 /**
@@ -64,7 +77,7 @@ function main() {
  * @param {String} path
  */
 
-function createApplication(app_name, path) {
+function createApplication(template, app_name, path) {
   mkdir(path, function() {
     downloadAndGenerate(template, path)
   });

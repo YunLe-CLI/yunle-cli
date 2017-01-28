@@ -12,24 +12,7 @@ program
 if (program.ls) {
   console.log();
   console.log('  template:');
-  var templates = [
-    {
-      name: 'gulp',
-      info: '专为原生html网站开发脚手架',
-    },
-    {
-      name: 'webpack',
-      info: '专为私有库开发脚手架',
-    },
-    {
-      name: 'react',
-      info: '专为基于react网站开发脚手架',
-    },
-    {
-      name: 'node',
-      info: '专为前端生产环境布署node-server',
-    },
-  ];
+  var templates = require('../package').yunleTemplates;
   for (var i = 0; i < templates.length; i++) {
     console.log();
     console.log('    ' + templates[i].name + '     ---  ' + templates[i].info);
