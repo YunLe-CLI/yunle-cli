@@ -27,7 +27,7 @@ help();
 /**
  * Settings.
  */
-var rawName = program.args[1]
+var rawName = program.args[0]
 var inPlace = !rawName || rawName === '.'
 var name = inPlace ? path.relative('../', process.cwd()) : rawName
 var to = path.resolve(rawName || '.')
