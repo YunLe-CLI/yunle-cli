@@ -1,6 +1,6 @@
 {
   "name": "yunle-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple CLI for scaffolding yunle projects",
   "main": "bin/yunle",
   "scripts": {
@@ -27,6 +27,10 @@
     {
       "name": "node",
       "info": "专为前端生产环境布署node-server"
+    },
+    {
+      "name": "electron",
+      "info": "使用Electron构建桌面应用"
     }
   ],
   "author": "hexiao-o",
