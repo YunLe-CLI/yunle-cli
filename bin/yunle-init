@@ -11,7 +11,7 @@ var ora = require('ora');
 var rm = require('rimraf').sync;
 
 program
-  .usage('<template-name> [project-name]')
+  .usage('[project-name]')
   .option('-c, --clone', 'use git clone')
 
 /**

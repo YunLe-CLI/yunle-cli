@@ -15,7 +15,8 @@ if (program.ls) {
   var templates = require('../package').yunleTemplates;
   for (var i = 0; i < templates.length; i++) {
     console.log();
-    console.log('    ' + templates[i].name + '     ---  ' + templates[i].info);
+    console.log('    ' + (i + 1) + '. ' + templates[i].name);
+    console.log('    ' + '   ---  ' + templates[i].info);
   }
   console.log();
 }
