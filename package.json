@@ -43,10 +43,7 @@
     "yunle": "./bin/yunle",
     "yunle-init": "./bin/yunle-init"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hexiao-o/yunle-cli.git"
-  },
+  "repository": "git+https://github.com/hexiao-o/yunle-cli.git",
   "bugs": {
     "url": "https://github.com/hexiao-o/yunle-cli/issues"
   },
