@@ -107,7 +107,7 @@ function mkdir(path, fn) {
 function downloadAndGenerate (template, path) {
   var spinner = ora('downloading template');
   spinner.start()
-  download('hexiao-o/yunle-template-' + template, path, { clone: clone }, function (err) {
+  download('yunle-cli/yunle-template-' + template, path, { clone: clone }, function (err) {
     spinner.stop()
     if (err) console.error('未能下载模板' + template + ': ' + err.message.trim());
     console.log()
