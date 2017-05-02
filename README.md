@@ -25,3 +25,7 @@ $ > gulp
     react
     node
 ```
+
+![开发架构](docs/images/1.jpg)
+
+![开发理想](docs/images/2.jpg)
