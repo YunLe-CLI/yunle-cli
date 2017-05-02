@@ -38,7 +38,7 @@
     }
   ],
   "author": "hexiao-o",
-  "license": "ISC",
+  "license": "MIT",
   "bin": {
     "yunle": "./bin/yunle",
     "yunle-init": "./bin/yunle-init"
