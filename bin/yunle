@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 var program = require('commander');
-var inquirer = require('inquirer');
 
 program
   .version(require('../package').version)
   .usage('<command> [options]')
   .option('-L, --ls', 'output template list')
-  .command('init', '从一个模板生成一个新项目')
+	.command('init', '从一个模板生成一个新项目')
+	.command('run', '调用本地script')
   .parse(process.argv)
 
 if (program.ls) {

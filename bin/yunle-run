@@ -1,0 +1,46 @@
+#!/usr/bin/env node
+var path = require('path');
+var fs = require('fs');
+var program = require('commander');
+var exec = require('child_process').exec;
+
+program
+    .usage('[script]')
+    .option('-L, --ls', 'output scripts list')
+    .parse(process.argv);
+
+var rawName = program.args[0]
+var packageFile = fs.existsSync(path.join(process.cwd()), 'package.json');
+if (program.ls) {
+    if (packageFile) {
+      console.log();
+      console.log('  scripts:');
+      var scripts = require(path.join(process.cwd(), 'package.json')).scripts;
+      console.log(scripts);
+      for (var i in scripts) {
+        console.log();
+        console.log('    ' + (i) );
+      }
+      console.log();
+    }
+    return;
+}
+function help () {
+  program.parse(process.argv)
+  if (program.args.length < 1) return program.help()
+}
+help();
+
+main();
+
+function main() {
+    if (packageFile) {
+        var child = exec('npm run ' + rawName, function(err, stdout, stderr) {
+          if (err) throw err;
+          console.log(stdout);
+          console.log(stderr);
+        });
+    } else {
+        console.log('请在yunle生成的项目根目录中使用！');
+    }
+}
