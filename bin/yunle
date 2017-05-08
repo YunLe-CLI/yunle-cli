@@ -1,18 +1,20 @@
 #!/usr/bin/env node
 var program = require('commander');
+var version = require('../package').version
 
 program
   .version(require('../package').version)
   .usage('<command> [options]')
   .option('-L, --ls', 'output template list')
-	.command('init', '从一个模板生成一个新项目')
+  .command('init', '从一个模板生成一个新项目')
 	.command('run', '调用本地script')
-  .parse(process.argv)
+	.parse(process.argv)
 
 if (program.ls) {
   console.log();
   console.log('  template:');
-  var templates = require('../package').yunleTemplates;
+	var templates = require('../package').yunleTemplates;
+	var version = require('../package').version;
   for (var i = 0; i < templates.length; i++) {
     console.log();
     console.log('    ' + (i + 1) + '. ' + templates[i].name);

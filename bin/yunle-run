@@ -2,45 +2,52 @@
 var path = require('path');
 var fs = require('fs');
 var program = require('commander');
-var exec = require('child_process').exec;
+var spawn = require('child_process').spawn;
 
 program
-    .usage('[script]')
-    .option('-L, --ls', 'output scripts list')
-    .parse(process.argv);
+	.usage('[script]')
+	.option('-S, --scripts', 'output scripts list');
 
-var rawName = program.args[0]
-var packageFile = fs.existsSync(path.join(process.cwd()), 'package.json');
-if (program.ls) {
-    if (packageFile) {
-      console.log();
-      console.log('  scripts:');
-      var scripts = require(path.join(process.cwd(), 'package.json')).scripts;
-      console.log(scripts);
-      for (var i in scripts) {
-        console.log();
-        console.log('    ' + (i) );
-      }
-      console.log();
-    }
-    return;
-}
 function help () {
   program.parse(process.argv)
   if (program.args.length < 1) return program.help()
 }
 help();
 
+var packageFile = fs.existsSync(path.join(process.cwd(), 'package.json'));
+var rawName = program.args[0];
+
+if (program.s) {
+	if (packageFile) {
+		console.log();
+		console.log('  scripts:');
+		var scripts = require(path.join(process.cwd(), 'package.json')).scripts;
+		console.log(scripts);
+		for (var i in scripts) {
+			console.log();
+			console.log('    ' + (i) );
+		}
+		console.log();
+	}
+	return;
+}
+
+
 main();
 
 function main() {
-    if (packageFile) {
-        var child = exec('npm run ' + rawName, function(err, stdout, stderr) {
-          if (err) throw err;
-          console.log(stdout);
-          console.log(stderr);
+	if (packageFile && rawName) {
+        var npm = spawn('npm', ['run', rawName]);
+        npm.stdout.on('data', function (data) {
+            console.log(data);
         });
-    } else {
-        console.log('请在yunle生成的项目根目录中使用！');
-    }
+        npm.stderr.on('data', function (data) {
+            console.log(data);
+        });
+        npm.on('exit', function (code) {
+            console.log(code);
+        });
+	} else {
+		console.log('请在yunle生成的项目根目录中使用！');
+	}
 }

@@ -1,6 +1,6 @@
 {
   "name": "yunle-cli",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "A simple CLI for scaffolding yunle projects",
   "main": "bin/yunle",
   "scripts": {
@@ -41,7 +41,8 @@
   "license": "MIT",
   "bin": {
     "yunle": "./bin/yunle",
-    "yunle-init": "./bin/yunle-init"
+    "yunle-init": "./bin/yunle-init",
+    "yunle-run": "./bin/yunle-run"
   },
   "repository": "git+https://github.com/hexiao-o/yunle-cli.git",
   "bugs": {

@@ -115,3 +115,18 @@ function downloadAndGenerate (template, path) {
     console.log()
   });
 }
+
+// if (program.ls) {
+// 	if (packageFile) {
+// 		console.log();
+// 		console.log('  scripts:');
+// 		var scripts = require(path.join(process.cwd(), 'package.json')).scripts;
+// 		console.log(scripts);
+// 		for (var i in scripts) {
+// 			console.log();
+// 			console.log('    ' + (i) );
+// 		}
+// 		console.log();
+// 	}
+// 	return;
+// }
