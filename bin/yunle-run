@@ -39,13 +39,13 @@ function main() {
 	if (packageFile && rawName) {
         var npm = spawn('npm', ['run', rawName]);
         npm.stdout.on('data', function (data) {
-            console.log(data);
+            console.log('' + data);
         });
         npm.stderr.on('data', function (data) {
-            console.log(data);
+            console.log('' + data);
         });
         npm.on('exit', function (code) {
-            console.log(code);
+            console.log('' + code);
         });
 	} else {
 		console.log('请在yunle生成的项目根目录中使用！');
