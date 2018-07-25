@@ -20,7 +20,8 @@ $ yunle init <project-name>
 ```
 $ yunle init my-project
 
-$ > gulp
+$ > component
+    gulp
     webpack
     react
     node
