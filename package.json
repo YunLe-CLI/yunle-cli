@@ -1,6 +1,6 @@
 {
   "name": "yunle-cli",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "A simple CLI for scaffolding yunle projects",
   "main": "bin/yunle",
   "scripts": {
@@ -8,6 +8,22 @@
   },
   "keywords": [],
   "yunleTemplates": [
+    {
+      "name": "react",
+      "info": "react.js网站开发脚手架"
+    },
+    {
+      "name": "next",
+      "info": "前端生产环境node中间渲染层"
+    },
+    {
+      "name": "RN",
+      "info": "ReactNative快速的开发iOS和Android应用"
+    },
+    {
+      "name": "electron",
+      "info": "Electron快速的构建桌面应用"
+    },
     {
       "name": "component",
       "info": "react组件开发脚手架"
@@ -19,26 +35,6 @@
     {
       "name": "webpack",
       "info": "私有库开发脚手架"
-    },
-    {
-      "name": "react",
-      "info": "react.js网站开发脚手架"
-    },
-    {
-      "name": "vue",
-      "info": "vue.js网站开发脚手架"
-    },
-    {
-      "name": "node",
-      "info": "前端生产环境node中间渲染层"
-    },
-    {
-      "name": "RN",
-      "info": "ReactNative快速的开发iOS和Android应用"
-    },
-    {
-      "name": "electron",
-      "info": "Electron快速的构建桌面应用"
     }
   ],
   "author": "hexiao-o",
