@@ -1,6 +1,6 @@
 {
   "name": "yunle-cli",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "A simple CLI for scaffolding yunle projects",
   "main": "bin/yunle",
   "scripts": {
@@ -13,7 +13,7 @@
       "info": "react.js网站开发脚手架"
     },
     {
-      "name": "RN",
+      "name": "react-native",
       "info": "ReactNative快速的开发iOS和Android应用"
     },
     {
@@ -31,6 +31,11 @@
     {
       "name": "next",
       "info": "前端生产环境node中间渲染层"
+    },
+
+    {
+      "name": "nest",
+      "info": "服务端开发"
     },
 
     {
